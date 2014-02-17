@@ -2,11 +2,10 @@
 #define MAIN_WINDOW_HPP
 
 
-#include "server_manager.hpp"
+#include <twec/server_manager.hpp>
 #include "ui_main_window.h"
 
 #include <QMainWindow>
-
 
 
 namespace Ui
@@ -18,7 +17,7 @@ class main_window : public QMainWindow
 
 	Ui::main_window* m_ui;
 
-	server_manager m_servermgr;
+	twec::server_manager m_servermgr;
 
 public:
 	main_window(QWidget* parent = nullptr) :
