@@ -1,3 +1,8 @@
+//
+// Copyright (c) 2014 Christoph Malek
+// See LICENSE for more information.
+//
+
 #ifndef MAIN_WINDOW_HPP
 #define MAIN_WINDOW_HPP
 

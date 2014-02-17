@@ -1,3 +1,8 @@
+//
+// Copyright (c) 2014 Christoph Malek
+// See LICENSE for more information.
+//
+
 #include "main_window.hpp"
 #include <QApplication>
 

@@ -1,3 +1,8 @@
+//
+// Copyright (c) 2014 Christoph Malek
+// See LICENSE for more information.
+//
+
 #ifndef TWEC_SERVER_MANAGER_HPP
 #define TWEC_SERVER_MANAGER_HPP
 
