@@ -15,9 +15,6 @@ TARGET = tw_econ_gui
 TEMPLATE = app
 
 
-SOURCES += main.cpp
-
-HEADERS  += main_window.hpp \
-    server_manager.hpp
-
-FORMS    += main_window.ui
+SOURCES	+=  main.cpp
+HEADERS +=  $$system("find ./ -name '*.hpp'")
+FORMS	+=  main_window.ui
