@@ -4,6 +4,9 @@
 #
 #-------------------------------------------------
 
+QMAKE_CXX = clang++
+QMAKE_CXXFLAGS += -std=c++0x
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -12,9 +15,9 @@ TARGET = tw_econ_gui
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        main_window.cpp
+SOURCES += main.cpp
 
-HEADERS  += main_window.hpp
+HEADERS  += main_window.hpp \
+    server_manager.hpp
 
 FORMS    += main_window.ui
