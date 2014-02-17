@@ -1,5 +1,5 @@
-#ifndef SERVER_MANAGER_HPP
-#define SERVER_MANAGER_HPP
+#ifndef TWEC_SERVER_MANAGER_HPP
+#define TWEC_SERVER_MANAGER_HPP
 
 
 #include <QObject>
@@ -30,4 +30,4 @@ namespace twec
 }
 
 
-#endif // SERVER_MANAGER_HPP
+#endif // TWEC_SERVER_MANAGER_HPP
