@@ -1,24 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>main_window</class>
- <widget class="QMainWindow" name="main_window" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>984</width>
+    <height>695</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>main_window</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Host/IP:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="le_host">
+          <property name="minimumSize">
+           <size>
+            <width>250</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>127.0.0.1</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="sizeIncrement">
+           <size>
+            <width>20</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Port:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="sb_port">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="specialValueText">
+           <string>25565</string>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Password:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="le_password">
+          <property name="text">
+           <string>lol</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_login">
+        <property name="text">
+         <string>Login</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="0">
+     <widget class="QTabWidget" name="tw_main">
+      <property name="tabPosition">
+       <enum>QTabWidget::South</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>(no server)</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tw_server">
+          <property name="tabPosition">
+           <enum>QTabWidget::South</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_main_controlls">
+           <attribute name="title">
+            <string>Main Controlls</string>
+           </attribute>
+           <widget class="QWidget" name="layoutWidget_2">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>410</y>
+              <width>931</width>
+              <height>60</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Send text to chat:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLineEdit" name="le_echo_text"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btn_text_send">
+               <property name="text">
+                <string>Send</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="Line" name="line">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>390</y>
+              <width>931</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_shutdown">
+            <property name="geometry">
+             <rect>
+              <x>822</x>
+              <y>338</y>
+              <width>121</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(173, 0, 0);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>SHUTDOWN</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="Line" name="line_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>321</y>
+              <width>931</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_reload_map">
+            <property name="geometry">
+             <rect>
+              <x>860</x>
+              <y>40</y>
+              <width>94</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Reload Map</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="le_mapname">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>40</y>
+              <width>711</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="placeholderText">
+             <string>Mapname</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>740</x>
+              <y>40</y>
+              <width>99</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Change Map</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="le_record_filename">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>90</y>
+              <width>661</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="placeholderText">
+             <string>Recording filename</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_start_recording">
+            <property name="geometry">
+             <rect>
+              <x>690</x>
+              <y>90</y>
+              <width>120</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Start Recording</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_stop_recording">
+            <property name="geometry">
+             <rect>
+              <x>830</x>
+              <y>90</y>
+              <width>120</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Start Recording</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="le_broadcast">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>140</y>
+              <width>811</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="placeholderText">
+             <string>Broadscast</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_set_broadcast">
+            <property name="geometry">
+             <rect>
+              <x>840</x>
+              <y>140</y>
+              <width>111</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Set Broadcast</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="le_restart_time">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>190</y>
+              <width>811</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="placeholderText">
+             <string>Restart time</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_restart_round">
+            <property name="geometry">
+             <rect>
+              <x>840</x>
+              <y>190</y>
+              <width>111</width>
+              <height>29</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Restart Round</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_vote_yes">
+            <property name="geometry">
+             <rect>
+              <x>740</x>
+              <y>278</y>
+              <width>93</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Vote YES</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_vote_no">
+            <property name="geometry">
+             <rect>
+              <x>850</x>
+              <y>278</y>
+              <width>93</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Vote NO</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>12</x>
+              <y>478</y>
+              <width>931</width>
+              <height>60</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Custom Command:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLineEdit" name="le_custom_cmd"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btn_custom_cmd_send">
+               <property name="text">
+                <string>Send</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="tab_players">
+           <attribute name="title">
+            <string>Players</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_server_output">
+           <attribute name="title">
+            <string>Server Output</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QTextEdit" name="te_log">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>
