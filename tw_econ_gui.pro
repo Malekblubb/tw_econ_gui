@@ -14,7 +14,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = tw_econ_gui
 TEMPLATE = app
 
-INCLUDEPATH += ./include
+INCLUDEPATH +=	./include \
+		./external/mlk/include
 
 SOURCES	+=  main.cpp
 HEADERS +=  $$system("find ./ -name '*.hpp'")
