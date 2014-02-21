@@ -47,6 +47,39 @@ private slots:
 		m_servermgr.open_econ({m_ui->le_host->text().toStdString(), m_ui->sb_port->text().toStdString()}, m_ui->le_password->text().toStdString());
 	}
 
+	void on_btn_change_map_clicked()
+	{m_servermgr.exec_command("change_map " + m_ui->le_mapname->text().toStdString());}
+
+	void on_btn_reload_map_clicked()
+	{m_servermgr.exec_command("reload");}
+
+	void on_btn_start_recording_clicked()
+	{m_servermgr.exec_command("record " + m_ui->le_record_filename->text().toStdString());}
+
+	void on_btn_stop_recording_clicked()
+	{m_servermgr.exec_command("stoprecord");}
+
+	void on_btn_set_broadcast_clicked()
+	{m_servermgr.exec_command("broadcast " + m_ui->le_broadcast->text().toStdString());}
+
+	void on_btn_restart_round_clicked()
+	{m_servermgr.exec_command("restart " + m_ui->le_restart_time->text().toStdString());}
+
+	void on_btn_vote_yes_clicked()
+	{m_servermgr.exec_command("vote yes");}
+
+	void on_btn_vote_no_clicked()
+	{m_servermgr.exec_command("vote no");}
+
+	void on_btn_shutdown_clicked()
+	{m_servermgr.exec_command("shutdown");}
+
+	void on_btn_text_send_clicked()
+	{m_servermgr.exec_command("say " + m_ui->le_echo_text->text().toStdString());}
+
+	void on_btn_custom_cmd_send_clicked()
+	{m_servermgr.exec_command(m_ui->le_custom_cmd->text().toStdString());}
+
 	void _on_log_added(const std::string& str)
 	{
 		m_ui->te_log->moveCursor(QTextCursor::End);
@@ -69,7 +102,6 @@ private slots:
 		m_ui->tw_main->setTabText(0, m_ui->tw_main->tabText(0) + "(logged)");
 	}
 };
-
 
 
 #endif // MAIN_WINDOW_HPP
