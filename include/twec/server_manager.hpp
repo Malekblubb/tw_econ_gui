@@ -42,7 +42,8 @@ namespace twec
 			m_econ_client.on_login =
 			[this]{emit this->logged_in();};
 
-			m_econ_client.on_playerinfo_received = []{std::cout << "reved" << std::endl;};
+			m_econ_client.on_playerinfo_received =
+			[this](const player_infos& pi){emit this->playerinfo_received(pi);};
 
 			m_update_timer.start(0);
 		}
@@ -67,6 +68,7 @@ namespace twec
 		void connection_lost();
 		void connection_start(const std::string&);
 		void logged_in();
+		void playerinfo_received(const twec::player_infos&); // twec:: - QT needs that namspace, lel
 
 	private slots:		
 		void update()
