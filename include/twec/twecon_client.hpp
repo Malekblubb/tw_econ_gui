@@ -39,7 +39,7 @@ namespace twec
 		mlk::slot<> on_connection_lost;
 		mlk::slot<> on_connection;
 		mlk::slot<> on_login;
-		mlk::slot<> on_playerinfo_received;
+		mlk::slot<const player_infos&> on_playerinfo_received;
 
 		twecon_client() :
 			m_recvdata(m_maxrecv)
@@ -96,12 +96,11 @@ namespace twec
 				auto str(this->make_string(m_recvdata, len));
 				data_parser dp{str};
 
-
 				if(!m_logged && dp.is_login_reply())
 					this->on_internal_login();
 				if(m_playerinfo_requested && dp.is_player_reply())
 				{
-					on_playerinfo_received();
+					on_playerinfo_received(dp.get_player_info());
 					m_playerinfo_requested = false;
 				}
 
