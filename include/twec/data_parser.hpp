@@ -18,7 +18,8 @@ namespace twec
 {
 	class data_parser
 	{
-		const std::string& m_inputstr;
+		//const std::string& m_inputstr; mingw dont likes that const ref...
+		std::string m_inputstr;
 
 	public:
 		data_parser(const std::string& inputstr) :
