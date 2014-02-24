@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
+!win32{
 QMAKE_CXX = clang++
+}
 QMAKE_CXXFLAGS += -std=c++0x
 
 QT       += core gui
@@ -18,5 +20,6 @@ INCLUDEPATH +=	./include \
 		./external/mlk/include
 
 SOURCES	+=  main.cpp
-HEADERS +=  $$system("find ./ -name '*.hpp'")
+HEADERS +=  *.hpp \
+	    include/twec/*.hpp
 FORMS	+=  main_window.ui
