@@ -154,6 +154,7 @@ private slots:
 	void _on_login()
 	{
 		m_ui->tw_main->setTabText(0, m_ui->tw_main->tabText(0) + "(logged)");
+		this->set_window_state("Logged in");
 	}
 
 	void _on_playerinfo_received(const twec::player_infos& infos)
