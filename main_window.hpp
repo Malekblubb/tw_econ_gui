@@ -143,6 +143,7 @@ private slots:
 	{
 		QMessageBox::critical(this, "Error", "Connection to server lost");
 		this->set_window_state("Connection lost");
+		m_ui->tw_main->setTabText(0, "(no server)");
 	}
 
 	void _on_connection_start(const std::string& addr_str)
