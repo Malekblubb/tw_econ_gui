@@ -22,6 +22,9 @@ namespace twec
 		bool connect(const mlk::ntw::ip_address& addr)
 		{return m_socket.connect(addr);}
 
+		void disconnect()
+		{m_socket.reset_socket();}
+
 		ssize_t send_line(const mlk::data_packet& data) const
 		{
 			auto cpy(data);
