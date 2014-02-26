@@ -50,9 +50,10 @@ namespace twec
 
 		void open_econ(const mlk::ntw::ip_address& addr, const std::string& pass)
 		{
-			if(!m_econ_client.is_connected())
+			auto is_same_addr(addr == m_econ_client.get_address());
+			if(!m_econ_client.is_connected() || !is_same_addr)
 				m_econ_client.open_connection(addr);
-			if(!m_econ_client.is_logged())
+			if(!m_econ_client.is_logged() || !is_same_addr)
 				m_econ_client.login(pass);
 		}
 

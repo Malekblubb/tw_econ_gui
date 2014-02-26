@@ -110,6 +110,8 @@ namespace twec
 
 		void open_connection(const mlk::ntw::ip_address& addr)
 		{
+			if(m_connected)
+				m_telnet.disconnect();
 			m_next_addr = addr;
 			m_need_connect = true;
 			m_connected = false;
