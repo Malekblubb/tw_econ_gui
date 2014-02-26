@@ -175,6 +175,9 @@ namespace twec
 			m_valid = false;
 			m_need_connect = false;
 			m_need_send_pass = false;
+			m_need_send_connection_lost = false;
+			m_playerinfo_requested = false;
+			m_telnet.disconnect();
 		}
 
 		void try_connect()
