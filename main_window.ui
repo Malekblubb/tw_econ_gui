@@ -55,7 +55,7 @@
            <enum>QTabWidget::South</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_main_controlls">
            <attribute name="title">
@@ -314,19 +314,6 @@ color: rgb(255, 255, 255);</string>
            <layout class="QGridLayout" name="gridLayout_16">
             <item row="0" column="0" rowspan="4">
              <layout class="QGridLayout" name="gridLayout_15">
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btn_refresh_playerlist">
-                <property name="maximumSize">
-                 <size>
-                  <width>135</width>
-                  <height>29</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Refresh Playerlist</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QTableWidget" name="tw_players">
                 <property name="editTriggers">
@@ -367,6 +354,19 @@ color: rgb(255, 255, 255);</string>
                   <string>IP</string>
                  </property>
                 </column>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="btn_refresh_playerlist">
+                <property name="maximumSize">
+                 <size>
+                  <width>135</width>
+                  <height>29</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Refresh Playerlist</string>
+                </property>
                </widget>
               </item>
              </layout>
@@ -597,7 +597,7 @@ color: rgb(255, 255, 255);</string>
            </size>
           </property>
           <property name="text">
-           <string>127.0.0.1</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -644,9 +644,6 @@ color: rgb(255, 255, 255);</string>
             <height>0</height>
            </size>
           </property>
-          <property name="specialValueText">
-           <string>25565</string>
-          </property>
           <property name="maximum">
            <number>65535</number>
           </property>
@@ -665,9 +662,6 @@ color: rgb(255, 255, 255);</string>
         </item>
         <item>
          <widget class="QLineEdit" name="le_password">
-          <property name="text">
-           <string>lol</string>
-          </property>
           <property name="echoMode">
            <enum>QLineEdit::Password</enum>
           </property>
