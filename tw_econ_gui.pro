@@ -30,5 +30,9 @@ HEADERS +=  main_window.hpp \
 	    include/twec/player_info.hpp \
 	    include/twec/server_manager.hpp \
 	    include/twec/telnet_client.hpp \
-	    include/twec/twecon_client.hpp
+	    include/twec/twecon_client.hpp \
+	    include/twec/job.hpp \
+	    include/twec/job_manager.hpp \
+	    include/twec/utils.hpp \
+	    include/twec/id_holder.hpp
 FORMS	+=  main_window.ui
