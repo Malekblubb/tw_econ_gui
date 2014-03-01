@@ -7,8 +7,10 @@
 #define MAIN_WINDOW_HPP
 
 
+#include <twec/id_holder.hpp>
 #include <twec/player_info.hpp>
 #include <twec/server_manager.hpp>
+#include <twec/utils.hpp>
 #include "ui_main_window.h"
 
 #include <QMainWindow>
@@ -23,6 +25,8 @@ class main_window : public QMainWindow
 	Q_OBJECT
 
 	Ui::main_window* m_ui;
+
+	QTimer m_update_timer;
 
 	twec::server_manager m_servermgr;
 
@@ -39,12 +43,38 @@ public:
 		connect(&m_servermgr, SIGNAL(connection_start(const std::string&)), this, SLOT(_on_connection_start(const std::string&)));
 		connect(&m_servermgr, SIGNAL(logged_in()), this, SLOT(_on_login()));
 		connect(&m_servermgr, SIGNAL(playerinfo_received(const twec::player_infos&)), this, SLOT(_on_playerinfo_received(const twec::player_infos&)));
+		connect(&m_servermgr, SIGNAL(job_ended(int)), this, SLOT(_on_job_ended(int)));
+
+		connect(&m_update_timer, SIGNAL(timeout()), this, SLOT(update()));
+
+		m_update_timer.start(0);
 	}
 
 	~main_window()
 	{delete m_ui;}
 
 private slots:
+	void update()
+	{
+		// update server, connection, etc...
+		m_servermgr.update();
+
+		// update some ui stuff
+		for(auto& a : m_servermgr.jobmgr().get_jobs())
+		{
+			// this code rly sucks, qt does not provide itering over cells
+			// TODO: maybe impl celliterating one day
+			for(auto row(0); row < m_ui->tw_jobs->rowCount(); ++row)
+				for(auto col(0); col < m_ui->tw_jobs->rowCount(); ++col)
+				{
+					auto ptr(twec::to_id_holder(m_ui->tw_jobs->cellWidget(row, col)));
+					if(ptr)
+						if(ptr->get_id() == a.get_id())
+							m_ui->tw_jobs->item(row, 1)->setText(twec::timestr_from_ms(a.get_countdown()).c_str());
+				}
+		}
+	}
+
 	void on_btn_login_clicked()
 	{
 		m_servermgr.open_econ({m_ui->le_host->text().toStdString(), m_ui->sb_port->text().toStdString()}, m_ui->le_password->text().toStdString());
@@ -126,6 +156,48 @@ private slots:
 		}
 	}
 
+	// tab: jobs
+	void on_pb_job_add_clicked()
+	{
+		auto row(m_ui->tw_jobs->rowCount());
+		auto time(m_ui->te_job_time->time());
+		auto time_ms(twec::ms_from_time(time.hour(), time.minute(), time.second()));
+		m_servermgr.jobmgr().add_job(row, m_ui->le_job_command->text().toStdString(), time_ms, m_ui->cb_job_repeat->isChecked());
+
+		QTableWidgetItem* cmd_item = new QTableWidgetItem{m_ui->le_job_command->text()};
+		QTableWidgetItem* tm_item = new QTableWidgetItem;
+		QTableWidgetItem* repeat_item = new QTableWidgetItem{m_ui->cb_job_repeat->isChecked() ? "Yes" : "No"};
+		m_ui->tw_jobs->insertRow(row);
+		m_ui->tw_jobs->setItem(row, 0, cmd_item);
+		m_ui->tw_jobs->setItem(row, 1, tm_item);
+		m_ui->tw_jobs->setItem(row, 2, repeat_item);
+
+		auto* h = new twec::id_holder{row};
+		m_ui->tw_jobs->setCellWidget(row, 0, h);
+
+		// reset the ui
+		m_ui->le_job_command->clear();
+		m_ui->te_job_time->setTime({0, 0});
+		m_ui->cb_job_repeat->setChecked(false);
+	}
+
+	void on_pb_remove_job_clicked()
+	{
+		auto selected(m_ui->tw_jobs->selectedItems());
+		for(auto iter(std::begin(selected)); iter != std::end(selected); ++iter)
+		{
+			auto obj(*iter);
+			auto ptr(twec::to_id_holder(m_ui->tw_jobs->cellWidget(obj->row(), obj->column())));
+			if(ptr == nullptr)
+				continue;
+
+			m_servermgr.jobmgr().remove_job(ptr->get_id());
+			m_ui->tw_jobs->removeRow(obj->row());
+			break; // should be single selection
+		}
+
+	}
+
 	void _on_log_added(const std::string& str)
 	{
 		m_ui->te_log->moveCursor(QTextCursor::End);
@@ -180,6 +252,18 @@ private slots:
 
 			++current_row;
 		}
+	}
+
+	void _on_job_ended(int id)
+	{
+		for(auto row(0); row < m_ui->tw_jobs->rowCount(); ++row)
+			for(auto col(0); col < m_ui->tw_jobs->rowCount(); ++col)
+			{
+				auto ptr(twec::to_id_holder(m_ui->tw_jobs->cellWidget(row, col)));
+				if(ptr)
+					if(ptr->get_id() == id)
+						m_ui->tw_jobs->removeRow(row);
+			}
 	}
 
 private:
