@@ -7,7 +7,10 @@
 #define TWEC_SERVER_MANAGER_HPP
 
 
+#include "job_manager.hpp"
 #include "twecon_client.hpp"
+
+#include <mlk/network/network.h>
 
 #include <QObject>
 #include <QTimer>
@@ -19,14 +22,12 @@ namespace twec
 	{
 		Q_OBJECT
 
-		QTimer m_update_timer;
 		twecon_client m_econ_client;
+		job_manager m_jobmanager{m_econ_client};
 
 	public:
 		server_manager()
 		{
-			connect(&m_update_timer, SIGNAL(timeout()), this, SLOT(update()));
-
 			m_econ_client.on_log_added =
 			[this](const std::string& str){emit this->log_added(str);};
 
@@ -45,7 +46,14 @@ namespace twec
 			m_econ_client.on_playerinfo_received =
 			[this](const player_infos& pi){emit this->playerinfo_received(pi);};
 
-			m_update_timer.start(0);
+			m_jobmanager.on_job_ended =
+			[this](int id){emit this->job_ended(id);};
+		}
+
+		void update()
+		{
+			m_econ_client.update();
+			m_jobmanager.update();
 		}
 
 		void open_econ(const mlk::ntw::ip_address& addr, const std::string& pass)
@@ -63,6 +71,9 @@ namespace twec
 		void request_player_info()
 		{m_econ_client.request_player_info();}
 
+		job_manager& jobmgr() noexcept
+		{return m_jobmanager;}
+
 	signals:
 		void log_added(const std::string&);
 		void connection_timeout();
@@ -70,12 +81,7 @@ namespace twec
 		void connection_start(const std::string&);
 		void logged_in();
 		void playerinfo_received(const twec::player_infos&); // twec:: - QT needs that namspace, lel
-
-	private slots:		
-		void update()
-		{
-			m_econ_client.update();
-		}
+		void job_ended(int);
 	};
 }
 
