@@ -49,7 +49,7 @@
            <enum>QTabWidget::South</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_main_controlls">
            <attribute name="title">
@@ -510,7 +510,20 @@ color: rgb(255, 255, 255);</string>
             <string>Server Jobs</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_20">
-            <item row="0" column="0">
+            <item row="1" column="2">
+             <spacer name="verticalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>174</width>
+                <height>297</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="0" rowspan="3">
              <layout class="QGridLayout" name="gridLayout_17">
               <item row="0" column="0">
                <widget class="QLabel" name="label_7">
@@ -580,7 +593,7 @@ color: rgb(255, 255, 255);</string>
               </item>
              </layout>
             </item>
-            <item row="0" column="1">
+            <item row="0" column="2">
              <widget class="QGroupBox" name="groupBox">
               <property name="title">
                <string>Add Job</string>
@@ -599,19 +612,6 @@ color: rgb(255, 255, 255);</string>
                   <string>Command to execute</string>
                  </property>
                 </widget>
-               </item>
-               <item row="2" column="0">
-                <spacer name="horizontalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>371</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
                <item row="3" column="1">
                 <widget class="QPushButton" name="pb_job_add">
@@ -644,21 +644,44 @@ color: rgb(255, 255, 255);</string>
                  </item>
                 </layout>
                </item>
-               <item row="4" column="1">
-                <spacer name="verticalSpacer_5">
+               <item row="1" column="0">
+                <spacer name="horizontalSpacer_4">
                  <property name="orientation">
-                  <enum>Qt::Vertical</enum>
+                  <enum>Qt::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>40</height>
+                   <width>169</width>
+                   <height>20</height>
                   </size>
                  </property>
                 </spacer>
                </item>
               </layout>
              </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE&lt;/span&gt;: You must not close this client while using jobs.&lt;/p&gt;&lt;p&gt;Otherwise the jobs will not be executed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>
