@@ -68,9 +68,8 @@ private slots:
 				for(auto col(0); col < m_ui->tw_jobs->rowCount(); ++col)
 				{
 					auto ptr(twec::to_id_holder(m_ui->tw_jobs->cellWidget(row, col)));
-					if(ptr)
-						if(ptr->get_id() == a.get_id())
-							m_ui->tw_jobs->item(row, 1)->setText(twec::timestr_from_ms(a.get_countdown()).c_str());
+					if(ptr && ptr->get_id() == a.get_id())
+						m_ui->tw_jobs->item(row, 1)->setText(twec::timestr_from_ms(a.get_countdown()).c_str());
 				}
 		}
 	}
@@ -260,9 +259,8 @@ private slots:
 			for(auto col(0); col < m_ui->tw_jobs->rowCount(); ++col)
 			{
 				auto ptr(twec::to_id_holder(m_ui->tw_jobs->cellWidget(row, col)));
-				if(ptr)
-					if(ptr->get_id() == id)
-						m_ui->tw_jobs->removeRow(row);
+				if(ptr && ptr->get_id() == id)
+					m_ui->tw_jobs->removeRow(row);
 			}
 	}
 
