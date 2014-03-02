@@ -76,8 +76,8 @@ private slots:
 
 	void on_btn_login_clicked()
 	{
-		m_servermgr.open_econ({m_ui->le_host->text().toStdString(), m_ui->sb_port->text().toStdString()}, m_ui->le_password->text().toStdString());
-		this->set_window_state("Trying to connect...");
+		if(m_servermgr.open_econ({m_ui->le_host->text().toStdString(), m_ui->sb_port->text().toStdString()}, m_ui->le_password->text().toStdString()))
+			this->set_window_state("Trying to connect...");
 	}
 
 	// tab: main controlls
