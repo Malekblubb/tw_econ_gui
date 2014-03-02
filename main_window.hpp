@@ -164,9 +164,9 @@ private slots:
 		auto time_ms(twec::ms_from_time(time.hour(), time.minute(), time.second()));
 		m_servermgr.jobmgr().add_job(row, m_ui->le_job_command->text().toStdString(), time_ms, m_ui->cb_job_repeat->isChecked());
 
-		QTableWidgetItem* cmd_item = new QTableWidgetItem{m_ui->le_job_command->text()};
-		QTableWidgetItem* tm_item = new QTableWidgetItem;
-		QTableWidgetItem* repeat_item = new QTableWidgetItem{m_ui->cb_job_repeat->isChecked() ? "Yes" : "No"};
+		auto* cmd_item = new QTableWidgetItem{m_ui->le_job_command->text()};
+		auto* tm_item = new QTableWidgetItem;
+		auto* repeat_item = new QTableWidgetItem{m_ui->cb_job_repeat->isChecked() ? "Yes" : "No"};
 		m_ui->tw_jobs->insertRow(row);
 		m_ui->tw_jobs->setItem(row, 0, cmd_item);
 		m_ui->tw_jobs->setItem(row, 1, tm_item);
@@ -241,10 +241,10 @@ private slots:
 			table->insertRow(current_row);
 
 			// some ugly code...
-			QTableWidgetItem* id_item = new QTableWidgetItem{a.id.c_str()};
-			QTableWidgetItem* addr_item = new QTableWidgetItem{a.addr.c_str()};
-			QTableWidgetItem* name_item = new QTableWidgetItem{a.name.c_str()};
-			QTableWidgetItem* score_item = new QTableWidgetItem{a.score.c_str()};
+			auto* id_item = new QTableWidgetItem{a.id.c_str()};
+			auto* addr_item = new QTableWidgetItem{a.addr.c_str()};
+			auto* name_item = new QTableWidgetItem{a.name.c_str()};
+			auto* score_item = new QTableWidgetItem{a.score.c_str()};
 			table->setItem(current_row, 0, id_item);
 			table->setItem(current_row, 1, name_item);
 			table->setItem(current_row, 2, score_item);
