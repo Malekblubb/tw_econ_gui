@@ -151,7 +151,7 @@ private slots:
 			// only id is interesting
 			if(a->column() != 0)
 				continue;
-			m_servermgr.exec_command("ban " + a->text().toStdString() + " " + banminutes);
+			m_servermgr.exec_command("ban " + a->text().toStdString() + " " + banminutes + " " + m_ui->le_banreason->text().toStdString());
 		}
 	}
 

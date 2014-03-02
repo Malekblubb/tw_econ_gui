@@ -49,7 +49,7 @@
            <enum>QTabWidget::South</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_main_controlls">
            <attribute name="title">
@@ -402,7 +402,17 @@ color: rgb(255, 255, 255);</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="1" column="0">
+               <widget class="QLineEdit" name="le_bantime">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Bantime (default: 5 minutes)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" rowspan="2">
                <widget class="QPushButton" name="btn_ban_selected">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -422,12 +432,12 @@ color: rgb(255, 255, 255);</string>
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QLineEdit" name="le_bantime">
+               <widget class="QLineEdit" name="le_banreason">
                 <property name="text">
                  <string/>
                 </property>
                 <property name="placeholderText">
-                 <string>Bantime (default: 5 minutes)</string>
+                 <string>Banreason</string>
                 </property>
                </widget>
               </item>
