@@ -25,7 +25,7 @@ namespace twec
 		mlk::slot<int> on_job_ended;
 
 		job_manager(twecon_client& ec) :
-			m_econclient{ec}
+			m_econclient(ec) // gcc dont likes that {} const ref init
 		{ }
 
 		template<typename... Args>
