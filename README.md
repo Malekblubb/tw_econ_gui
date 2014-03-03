@@ -9,6 +9,7 @@ after a given time. It is also possible to let the job repeat after it gets exec
 
 
 
+  
 ### Server setup
 You must add the following server settings to your server-config-file:  
 `ec_port 4444`: The port which the econ will use (e.g.  4444)  
@@ -19,10 +20,15 @@ You must add the following server settings to your server-config-file:
 
 If you are not sure, just copy all the settings to your config and  
 only change `ec_port` and `ec_password`.  
-
-
-
-
+  
+  
+  
+### Binary Downloads
+Linux x86_64: http://37.221.194.71/twec/tw_econ_gui_86-64  
+Windows (tested on 7, 8.1): http://37.221.194.71/twec/tw_econ_gui_win32.exe  
+  
+  
+  
 ### Screenshots
 
 #### Linux
