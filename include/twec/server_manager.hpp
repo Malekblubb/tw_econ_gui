@@ -32,7 +32,7 @@ namespace twec
 			[this](const std::string& str){emit this->log_added(str);};
 
 			m_econ_client.on_connection_timeout =
-			[this]{this->connection_timeout();};
+			[this]{emit this->connection_timeout();};
 
 			m_econ_client.on_connection_lost =
 			[this]{emit this->connection_lost();};
