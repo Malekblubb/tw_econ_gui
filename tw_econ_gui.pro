@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 !win32{
-QMAKE_CXX = clang++
+#QMAKE_CXX = clang++
 }
 QMAKE_CXXFLAGS	 += -std=c++0x
 QT		 += core gui
@@ -16,6 +16,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET	    = tw_econ_gui
 TEMPLATE    = app
+CONFIG += mobility
+MOBILITY =
 
 
 win32{
@@ -36,3 +38,8 @@ HEADERS +=  main_window.hpp \
 	    include/twec/utils.hpp \
 	    include/twec/id_holder.hpp
 FORMS	+=  main_window.ui
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+OTHER_FILES += \
+    android/AndroidManifest.xml
