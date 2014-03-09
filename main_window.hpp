@@ -15,6 +15,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QSettings>
 
 
 namespace Ui
@@ -27,6 +28,7 @@ class main_window : public QMainWindow
 	Ui::main_window* m_ui;
 
 	QTimer m_update_timer;
+	QSettings m_saved_servers{"/sdcard/twecongui_servers", QSettings::NativeFormat};
 
 	twec::server_manager m_servermgr;
 
@@ -35,7 +37,7 @@ public:
 		QMainWindow{parent},
 		m_ui{new Ui::main_window}
 	{
-		m_ui->setupUi(this);
+		this->init();
 
 		connect(&m_servermgr, SIGNAL(log_added(const std::string&)), this, SLOT(_on_log_added(const std::string&)));
 		connect(&m_servermgr, SIGNAL(connection_timeout()), this, SLOT(_on_connection_timeout()));
@@ -74,13 +76,24 @@ private slots:
 		}
 	}
 
+	// tab: main controlls
 	void on_btn_login_clicked()
 	{
-		if(m_servermgr.open_econ({m_ui->le_host->text().toStdString(), m_ui->sb_port->text().toStdString()}, m_ui->le_password->text().toStdString()))
+		auto host(m_ui->cb_host->currentText()), port(m_ui->sb_port->text());
+		if(m_servermgr.open_econ({host.toStdString(), port.toStdString()}, m_ui->le_password->text().toStdString()))
 			this->set_window_state("Trying to connect...");
+
+		auto key(host + ":" + port);
+		if(m_saved_servers.value(host).isNull())
+		{
+			m_saved_servers.setValue(host, port);
+			m_ui->cb_host->addItem(host, port);
+		}
 	}
 
-	// tab: main controlls
+	void on_cb_host_activated(int index)
+	{m_ui->sb_port->setValue(m_ui->cb_host->itemData(index).toInt());}
+
 	void on_btn_change_map_clicked()
 	{m_servermgr.exec_command("change_map " + m_ui->le_mapname->text().toStdString());}
 
@@ -265,6 +278,15 @@ private slots:
 	}
 
 private:
+	void init()
+	{
+		// setup ui
+		m_ui->setupUi(this);
+
+		for(auto& a : m_saved_servers.allKeys())
+			m_ui->cb_host->addItem(a, m_saved_servers.value(a));
+	}
+
 	void set_window_state(const std::string& state)
 	{m_ui->lb_state->setText(state.c_str());}
 };

@@ -33,6 +33,11 @@
      <layout class="QGridLayout" name="gridLayout_21">
       <item row="0" column="0">
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Host/IP:</string>
         </property>
@@ -40,23 +45,27 @@
       </item>
       <item row="0" column="1" rowspan="2">
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLineEdit" name="le_host">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
+        <item row="1" column="0">
+         <widget class="QLineEdit" name="le_password">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+           </font>
           </property>
-          <property name="text">
-           <string/>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLineEdit" name="le_password">
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
+        <item row="0" column="0">
+         <widget class="QComboBox" name="cb_host">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+           </font>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -64,6 +73,11 @@
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Password:</string>
         </property>
@@ -86,6 +100,11 @@
           <width>20</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Port:</string>
@@ -111,6 +130,11 @@
           <width>0</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
         </property>
         <property name="maximum">
          <number>65535</number>
