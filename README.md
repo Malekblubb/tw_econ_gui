@@ -1,3 +1,7 @@
+[DEPRECATED]
+Future updates: https://github.com/Malekblubb/twsm  
+  
+    
 Teeworlds External Console - GUI
 ================================
 
