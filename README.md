@@ -28,7 +28,7 @@ only change `ec_port` and `ec_password`.
   
   
 ### Binary Downloads
-Android (tested on Xperia S, Galaxy S2): http://37.221.194.71/twec/twec_android.apk 
+Android (tested on Xperia S, Galaxy S2): http://37.221.194.71/twec/twec_android.apk  
 Linux x86_64: http://37.221.194.71/twec/twec_86-64  
 Windows (tested on 7, 8.1): http://37.221.194.71/twec/twec_win.exe  
   
