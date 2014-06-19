@@ -37,12 +37,12 @@ Windows (tested on 7, 8.1): http://37.221.194.71/twec/tw_econ_gui_win32.exe
 ### Screenshots
 
 #### Android
-![img](http://37.221.194.71/img/android1.png)
+![img](http://37.221.194.71/img/twec_android.png)
 
   
 #### Linux
-![img](http://37.221.194.71/img/twec0.png)
+![img](http://37.221.194.71/img/twec_linux.png)
 
   
 #### Windows
-![img](http://37.221.194.71/img/twec1.png)
+![img](http://37.221.194.71/img/twec_win.png)
