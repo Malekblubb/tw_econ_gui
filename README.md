@@ -37,12 +37,12 @@ Windows (tested on 7, 8.1): http://37.221.194.71/twec/twec_win.exe
 ### Screenshots
 
 #### Android
-![img](http://37.221.194.71/img/twec_android.png)
+![img](https://raw.githubusercontent.com/Malekblubb/tw_econ_gui/master/twe_android.png)
 
   
 #### Linux
-![img](http://37.221.194.71/img/twec_linux.png)
+![img](https://raw.githubusercontent.com/Malekblubb/tw_econ_gui/master/twe_linux.png)
 
   
 #### Windows
-![img](http://37.221.194.71/img/twec_win.png)
+![img](https://raw.githubusercontent.com/Malekblubb/tw_econ_gui/master/twe_win.png)
